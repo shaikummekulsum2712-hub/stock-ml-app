@@ -29,6 +29,10 @@ def train_model(df):
     X = df[features]
     y = df["Target"]
 
+    # ✅ Safety check (IMPORTANT)
+    if len(X) < 10:
+        return None, 0
+
     split = int(len(df) * 0.8)
 
     X_train, X_test = X[:split], X[split:]
